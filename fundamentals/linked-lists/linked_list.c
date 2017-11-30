@@ -1,5 +1,6 @@
 /*
  * linked_list.c
+ * Implementation for Link List
  */
 
 #include <stdlib.h>
@@ -10,10 +11,17 @@
  * Initialize the linked list specified by `list`.
  * Time complexity is O(1).
  */
-void list_init(List *list) {
-    list->size = 0;
+List *list_create() {
+    List *list;
+
+    if ((list = (List *) (malloc(sizeof(List)))) == NULL)
+        exit(EXIT_FAILURE);
+
     list->head = NULL;
     list->tail = NULL;
+    list->size = 0;
+
+    return list;
 }
 
 
@@ -22,24 +30,26 @@ void list_init(List *list) {
  * Time complexity is O(n), where n is the number of nodes in the list.
  */
 void list_destroy(List *list) {
+    void *data;
+
     while (list_size(list) > 0) {
-        list_remove_next(list, NULL);
+        list_remove_next(list, NULL, (void **)&data);
     }
 }
 
 
 /*
- * Insert new node with given value, right after to given node.
+ * Insert new node with given data, right after to given node.
  * If insert at the head of the list, pass NULL as second parameter.
  * Time complexity is O(1)
  */
-void list_insert_next(List *list, Node *node, int value) {
+void list_insert_next(List *list, Node *node, void *data) {
     Node *new_node;
 
     if ((new_node = (Node *)malloc(sizeof(Node))) == NULL)
         exit(EXIT_FAILURE);
 
-    new_node->value = value;
+    new_node->data = data;
 
     if (node == NULL) {
         // insert at the head of the list
@@ -69,15 +79,16 @@ void list_insert_next(List *list, Node *node, int value) {
  * Pass NULL as second parameter if remove the node at the head of the list.
  * Time complexity is O(1).
  */
-void list_remove_next(List *list, Node *node) {
+void list_remove_next(List *list, Node *node, void **data) {
     Node *old_node;
 
-    // do not allow to remove from an empty list
+    // remove from an empty list
     if (list_size(list) == 0)
-        exit(EXIT_FAILURE);
+        return;
 
     if (node == NULL) {
         // remove from the head of the list
+        *data = list->head->data;
         old_node = list->head;
         list->head = list->head->next;
 
@@ -86,6 +97,7 @@ void list_remove_next(List *list, Node *node) {
 
     } else {
         // remove from other than the head
+        *data = node->next->data;
         old_node = node->next;
         node->next = node->next->next;
 
@@ -145,8 +157,8 @@ Node *list_tail(List *list) {
 
 
 /*
- * Return the value of the specified node
+ * Return the data of the specified node
  */
-int list_value(Node *node) {
-    return node->value;
+void *list_data(Node *node) {
+    return node->data;
 }

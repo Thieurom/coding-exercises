@@ -1,6 +1,8 @@
 /*
  * linked_list.h
+ * Header for Link List data structure
  */
+
 
 #ifndef LINKED_LIST_H
 #define LINKED_LIST_H
@@ -8,16 +10,16 @@
 #include <stdlib.h>
 
 /*
- * Structure for list node
+ * Node (list element) definition
  */
 typedef struct Node {
-    int value;
+    void *data;
     struct Node *next;
 } Node;
 
 
 /*
- * Structure for list
+ * List definition
  */
 typedef struct List {
     int size;
@@ -26,12 +28,14 @@ typedef struct List {
 } List;
 
 
-void list_init(List *list);
+List *list_create();
 void list_destroy(List *list);
-void list_insert_next(List *list, Node *node, int value);
-void list_remove_next(List *list, Node *node);
+void list_insert_next(List *list, Node *node, void *data);
+void list_remove_next(List *list, Node *node, void **data);
+void list_reverse(List *list);
 int list_size(List *list);
 Node *list_head(List *list);
 Node *list_tail(List *list);
+void *list_data(Node *node);
 
 #endif
