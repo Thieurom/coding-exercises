@@ -10,11 +10,11 @@
 
 
 /*
- * Insert new node with the specified value at the tail of the queue
+ * Insert new node with the specified data at the tail of the queue
  * Time complexity is O(1)
  */
-void queue_enqueue(Queue *queue, int value) {
-    list_insert_next(queue, list_tail(queue), value);
+void queue_enqueue(Queue *queue, void *data) {
+    list_insert_next(queue, list_tail(queue), data);
 }
 
 
@@ -24,7 +24,9 @@ void queue_enqueue(Queue *queue, int value) {
  */
 Node *queue_dequeue(Queue *queue) {
     Node *node = list_head(queue);
-    list_remove_next(queue, NULL);
+    void *data;
+
+    list_remove_next(queue, NULL, (void **)&data);
 
     return node;
 }
