@@ -1,6 +1,6 @@
 /*
  * stack.h
- * Header for Stack
+ * Header for Stack data structure
  */
 
 #ifndef STACK_H
@@ -12,11 +12,11 @@
 
 typedef List Stack;
 
-#define stack_init list_init
+#define stack_create list_create
 #define stack_destroy list_destroy
-void stack_push(Stack *stack, int value);
+void stack_push(Stack *stack, void *data);
 Node *stack_pop(Stack *stack);
-#define stack_peek(stack) ((stack)->head == NULL ? NULL : (stack)->head->value)
+#define stack_peek(stack) ((stack)->head == NULL ? NULL : (stack)->head->data)
 #define stack_size list_size
 
 #endif  /* STACK_H */

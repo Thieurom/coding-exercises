@@ -1,6 +1,6 @@
 /*
  * stack.c
- * Implementation of Stack
+ * Implementation of Stack data structure
  */
 
 #include <stdlib.h>
@@ -9,11 +9,11 @@
 
 
 /*
- * Insert new node with the specified value onto the top of the stack.
+ * Insert new node with the specified data onto the top of the stack.
  * Time comlexity is O(1)
  */
-void stack_push(Stack *stack, int value) {
-    list_insert_next(stack, NULL, value);
+void stack_push(Stack *stack, void *data) {
+    list_insert_next(stack, NULL, data);
 }
 
 
@@ -22,9 +22,11 @@ void stack_push(Stack *stack, int value) {
  * Time comlexity is O(1)
  */
 Node *stack_pop(Stack *stack) {
+    void *data;
+
     Node *node = list_head(stack);
 
-    list_remove_next(stack, NULL);
+    list_remove_next(stack, NULL, (void **)&data);
 
     return node;
 }
