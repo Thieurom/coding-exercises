@@ -6,6 +6,8 @@
 #include <stdio.h>
 #include "common.h"
 
+
+/* Print all array's elements */
 void print_array(int s[], int n) {
     int i;
 
@@ -18,6 +20,7 @@ void print_array(int s[], int n) {
 }
 
 
+/* Check whether array is sorted in ascending order */
 bool is_sorted(int s[], int n) {
     int i;
 
@@ -27,4 +30,12 @@ bool is_sorted(int s[], int n) {
     }
 
     return true;
+}
+
+
+/* Swap two integers values */
+void swap(int *m, int *n) {
+    int temp = *m;
+    *m = *n;
+    *n = temp;
 }
