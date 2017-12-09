@@ -9,16 +9,16 @@
 #ifndef PQUEUE_H
 #define PQUEUE_H
 
-#define PQ_SIZE 1000
+#include "heap.h"
 
-typedef struct {
-    int elements[PQ_SIZE + 1];
-    int size;
-} PQueue;
+typedef MinHeap PQueue;
 
-void pq_insert(PQueue *q, const int value);
-int pq_minimum(PQueue *q);
-int pq_extract_minimum(PQueue *q);
-#define pq_size(q) ((q)->size)
+#define pq_init heap_init
+#define pq_build heap_build
+#define pq_insert heap_insert
+#define pq_extract_minimum heap_remove
+#define pq_minimum heap_peek
+#define pq_size heap_size
+#define pq_is_empty heap_is_empty
 
 #endif  /* PQUEUE_H */

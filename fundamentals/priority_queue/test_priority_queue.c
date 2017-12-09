@@ -6,12 +6,15 @@
 
 
 #include <stdlib.h>
+#include <stdio.h>
 #include <assert.h>
 #include "priority_queue.h"
 
 
 int main() {
-    PQueue q = { .size = 0 };
+    PQueue q;
+
+    pq_init(&q);
 
     pq_insert(&q, 11);
     pq_insert(&q, 16);
@@ -44,6 +47,8 @@ int main() {
     assert(pq_extract_minimum(&q) == 18);
     assert(pq_extract_minimum(&q) == 19);
     assert(pq_size(&q) == 0);
+
+    printf("Tested OK\n");
 
     return EXIT_SUCCESS;
 }
