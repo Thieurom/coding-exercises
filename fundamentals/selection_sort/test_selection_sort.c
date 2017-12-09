@@ -5,30 +5,9 @@
 
 
 #include <stdio.h>
+#include "common.h"
 #include "selection_sort.h"
 
-
-void print_array(int s[], int n) {
-    int i;
-
-    printf("[ ");
-
-    for (i = 0; i < n; i++)
-        printf("%i ", s[i]);
-
-    printf("]\n");
-}
-
-int is_sorted(int s[], int n) {
-    int i;
-
-    for (i = 0; i < n - 1; i++) {
-        if (s[i] > s[i + 1])
-            return 0;
-    }
-
-    return 1;
-}
 
 int main() {
     int numbers[] = {
