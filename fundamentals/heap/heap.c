@@ -6,10 +6,11 @@
 
 #include <stdlib.h>
 #include <stdio.h>
+#include "common.h"
 #include "heap.h"
 
 
-void swap(int s[], const int i, const int j);
+void heap_swap(MinHeap *h, const int i, const int j);
 void heap_bubble_up(MinHeap *h, const int p);
 void heap_bubble_down(MinHeap *h, const int p);
 
@@ -59,7 +60,7 @@ void heap_insert(MinHeap *h, const int value) {
 int heap_remove(MinHeap *h) {
     int min = -1;
 
-    if (heap_empty(h))
+    if (heap_is_empty(h))
         printf("Warning: empty heap.\n");
     else {
         min = h->elements[1];
@@ -76,7 +77,7 @@ int heap_remove(MinHeap *h) {
  * Return true if the heap is empty, false otherwise.
  * Time complexity is constant, O(1).
  */
-bool heap_empty(MinHeap *h) {
+bool heap_is_empty(MinHeap *h) {
     return heap_size(h) == 0;
 }
 
@@ -88,7 +89,7 @@ void heap_bubble_up(MinHeap *h, const int p) {
     if (heap_parent(p) == -1) return;
 
     if (h->elements[p] < h->elements[heap_parent(p)]) {
-        swap(h->elements, p, heap_parent(p));
+        heap_swap(h, p, heap_parent(p));
         heap_bubble_up(h, heap_parent(p));
     }
 }
@@ -109,15 +110,13 @@ void heap_bubble_down(MinHeap *h, const int p) {
                 min_index = c + i;
 
     if (min_index != p) {
-        swap(h->elements, min_index, p);
+        heap_swap(h, min_index, p);
         heap_bubble_down(h, min_index);
     }
 }
 
 
-/* Swap two elements in the array */
-void swap(int s[], const int i, const int j) {
-    int temp = s[i];
-    s[i] = s[j];
-    s[j] = temp;
+/* Swap two elements in the heap */
+void heap_swap(MinHeap *h, const int i, const int j) {
+    swap(&(h->elements[i]), &(h->elements[j]));
 }

@@ -5,6 +5,7 @@
 
 
 #include <stdlib.h>
+#include <stdio.h>
 #include <assert.h>
 #include "heap.h"
 
@@ -31,6 +32,8 @@ int main() {
     assert(heap_peek(&h) == 11);
     assert(heap_remove(&h) == 11);
     assert(heap_size(&h) == 8);
+
+    printf("Tested OK\n");
 
     return EXIT_SUCCESS;
 }
