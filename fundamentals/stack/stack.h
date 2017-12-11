@@ -7,16 +7,17 @@
 #define STACK_H
 
 #include <stdlib.h>
-
 #include "linked_list.h"
 
-typedef List Stack;
+typedef struct {
+    List list;
+} Stack;
 
-#define stack_create list_create
-#define stack_destroy list_destroy
-void stack_push(Stack *stack, void *data);
-Node *stack_pop(Stack *stack);
-#define stack_peek(stack) ((stack)->head == NULL ? NULL : (stack)->head->data)
-#define stack_size list_size
+void stack_init(Stack *stack);
+void stack_push(Stack *stack, int value);
+int stack_pop(Stack *stack);
+int stack_top(Stack *stack);
+int stack_size(Stack *stack);
+bool stack_is_empty(Stack *stack);
 
 #endif  /* STACK_H */

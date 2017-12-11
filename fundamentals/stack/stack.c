@@ -1,6 +1,6 @@
 /*
  * stack.c
- * Implementation of Stack data structure
+ * Implementation of Stack data structure, using linked list.
  */
 
 #include <stdlib.h>
@@ -9,24 +9,60 @@
 
 
 /*
- * Insert new node with the specified data onto the top of the stack.
- * Time comlexity is O(1)
+ * Initialize stack.
+ * Time complexity is O(1).
  */
-void stack_push(Stack *stack, void *data) {
-    list_insert_next(stack, NULL, data);
+void stack_init(Stack *stack) {
+    list_init(&(stack->list));
 }
 
 
 /*
- * Remove the node off the top of a stack ant return it
- * Time comlexity is O(1)
+ * Insert new value onto the top of the stack.
+ * Time complexity is O(1)
  */
-Node *stack_pop(Stack *stack) {
-    void *data;
+void stack_push(Stack *stack, int value) {
+    list_insert_next(&(stack->list), NULL, value);
+}
 
-    Node *node = list_head(stack);
 
-    list_remove_next(stack, NULL, (void **)&data);
+/*
+ * Remove the value at the top of a stack and return it.
+ * Time pcomlexity is O(1)
+ */
+int stack_pop(Stack *stack) {
+    int value;
 
-    return node;
+    if (list_is_empty(&(stack->list)))
+        exit(EXIT_FAILURE);
+
+    value = list_value(list_head(&(stack->list)));
+    list_remove_next(&(stack->list), NULL);
+
+    return value;
+}
+
+
+/*
+ * Return the value of the top of the stack.
+ * Time complexity is O(1).
+ */
+int stack_top(Stack *stack) {
+    return list_value(list_head(&(stack->list)));
+}
+
+
+/*
+ * Return the size of the stack.
+ */
+int stack_size(Stack *stack) {
+    return list_size(&(stack->list));
+}
+
+
+/*
+ * Return true if stack is empty, false otherwise.
+ */
+bool stack_is_empty(Stack *stack) {
+    return list_is_empty(&(stack->list));
 }
