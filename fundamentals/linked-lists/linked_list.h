@@ -8,34 +8,38 @@
 #define LINKED_LIST_H
 
 #include <stdlib.h>
+#include <stdbool.h>
+
 
 /*
  * Node (list element) definition
  */
-typedef struct Node {
-    void *data;
-    struct Node *next;
+typedef struct LinkedListNode {
+    int value;
+    struct LinkedListNode *next;
 } Node;
 
 
 /*
  * List definition
  */
-typedef struct List {
+typedef struct LinkedList {
     int size;
     Node *head;
     Node *tail;
 } List;
 
 
-List *list_create();
-void list_destroy(List *list);
-void list_insert_next(List *list, Node *node, void *data);
-void list_remove_next(List *list, Node *node, void **data);
-void list_reverse(List *list);
+void list_init(List *list);
+void list_insert_next(List *list, Node *node, int value);
+void list_remove_next(List *list, Node *node);
+void list_remove_all(List *list);
 int list_size(List *list);
 Node *list_head(List *list);
 Node *list_tail(List *list);
-void *list_data(Node *node);
+Node *list_next(Node *node);
+int list_value(Node *node);
+bool list_is_empty(List *list);
+void list_reverse(List *list);
 
-#endif
+#endif  /* LINKED_LIST_H */

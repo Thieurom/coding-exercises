@@ -11,45 +11,25 @@
  * Initialize the linked list specified by `list`.
  * Time complexity is O(1).
  */
-List *list_create() {
-    List *list;
-
-    if ((list = (List *) (malloc(sizeof(List)))) == NULL)
-        exit(EXIT_FAILURE);
-
+void list_init(List *list) {
     list->head = NULL;
     list->tail = NULL;
     list->size = 0;
-
-    return list;
 }
 
 
 /*
- * Destroy the list
- * Time complexity is O(n), where n is the number of nodes in the list.
- */
-void list_destroy(List *list) {
-    void *data;
-
-    while (list_size(list) > 0) {
-        list_remove_next(list, NULL, (void **)&data);
-    }
-}
-
-
-/*
- * Insert new node with given data, right after to given node.
+ * Insert new node with given value, right after to given node.
  * If insert at the head of the list, pass NULL as second parameter.
  * Time complexity is O(1)
  */
-void list_insert_next(List *list, Node *node, void *data) {
+void list_insert_next(List *list, Node *node, int value) {
     Node *new_node;
 
     if ((new_node = (Node *)malloc(sizeof(Node))) == NULL)
         exit(EXIT_FAILURE);
 
-    new_node->data = data;
+    new_node->value = value;
 
     if (node == NULL) {
         // insert at the head of the list
@@ -79,7 +59,7 @@ void list_insert_next(List *list, Node *node, void *data) {
  * Pass NULL as second parameter if remove the node at the head of the list.
  * Time complexity is O(1).
  */
-void list_remove_next(List *list, Node *node, void **data) {
+void list_remove_next(List *list, Node *node) {
     Node *old_node;
 
     // remove from an empty list
@@ -88,7 +68,6 @@ void list_remove_next(List *list, Node *node, void **data) {
 
     if (node == NULL) {
         // remove from the head of the list
-        *data = list->head->data;
         old_node = list->head;
         list->head = list->head->next;
 
@@ -97,7 +76,6 @@ void list_remove_next(List *list, Node *node, void **data) {
 
     } else {
         // remove from other than the head
-        *data = node->next->data;
         old_node = node->next;
         node->next = node->next->next;
 
@@ -111,24 +89,13 @@ void list_remove_next(List *list, Node *node, void **data) {
 
 
 /*
- * Reverse the list
- * Time complexity is O(n)
+ * Remove all the nodes of the list.
+ * Time complexity is O(n), where n is the number of nodes in the list.
  */
-void list_reverse(List *list) {
-    Node *prev = NULL;
-    Node *current = list->head;
-    Node *next;
-
-    list->tail = list->head;
-
-    while (current != NULL) {
-        next = current->next;
-        current->next = prev;
-        prev = current;
-        current = next;
+void list_remove_all(List *list) {
+    while (list_size(list) > 0) {
+        list_remove_next(list, NULL);
     }
-
-    list->head = prev;
 }
 
 
@@ -157,8 +124,46 @@ Node *list_tail(List *list) {
 
 
 /*
- * Return the data of the specified node
+ * Return the node after the given node
  */
-void *list_data(Node *node) {
-    return node->data;
+Node *list_next(Node *node) {
+    return node->next;
+}
+
+
+/*
+ * Return the value of the specified node
+ */
+int list_value(Node *node) {
+    return node->value;
+}
+
+
+/*
+ * Return true if the list is empty, false otherwise.
+ */
+bool list_is_empty(List *list) {
+    return list_size(list) == 0;
+}
+
+
+/*
+ * Reverse the list
+ * Time complexity is O(n), where n is the number of nodes in the list.
+ */
+void list_reverse(List *list) {
+    Node *prev = NULL;
+    Node *current = list->head;
+    Node *next;
+
+    list->tail = list->head;
+
+    while (current != NULL) {
+        next = current->next;
+        current->next = prev;
+        prev = current;
+        current = next;
+    }
+
+    list->head = prev;
 }
