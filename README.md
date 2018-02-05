@@ -32,7 +32,7 @@
 |26|[Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/)| [C](./leetcode-c/lc_026.c), [Go](./leetcode-go/lc_026.go), [Swift](./leetcode-swift/lc_026.swift)|Easy|
 |27|[Remove Element](https://leetcode.com/problems/remove-element/)| [C](./leetcode-c/lc_027.c), [Go](./leetcode-go/lc_027.go), [Swift](./leetcode-swift/lc_027.swift)|Easy|
 |28|[Implement strStr()](https://leetcode.com/problems/implement-strstr/)| [C](./leetcode-c/lc_028.c), [Go](./leetcode-go/lc_028.go), [Swift](./leetcode-swift/lc_028.swift)|Easy|
-|35|[Search Insert Position](https://leetcode.com/problems/search-insert-position/)| [C](./leetcode-c/lc_035.c)|Medium|
+|35|[Search Insert Position](https://leetcode.com/problems/search-insert-position/)| [C](./leetcode-c/lc_035.c), [Swift](./leetcode-swift/lc_035.swift)|Medium|
 |38|[Count and Say](https://leetcode.com/problems/count-and-say/)| [C](./leetcode-c/lc_038.c)|Easy|
 |58|[Length of Last Word](https://leetcode.com/problems/length-of-last-word/)| [C](./leetcode-c/lc_058.c)|Easy|
 |66|[Plus One](https://leetcode.com/problems/plus-one/)| [C](./leetcode-c/lc_066.c)|Easy|
