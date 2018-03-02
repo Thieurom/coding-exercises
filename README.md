@@ -35,7 +35,7 @@
 |35|[Search Insert Position](https://leetcode.com/problems/search-insert-position/)| [C](./leetcode-c/lc_035.c), [Swift](./leetcode-swift/lc_035.swift)|Medium|
 |38|[Count and Say](https://leetcode.com/problems/count-and-say/)| [C](./leetcode-c/lc_038.c), [Swift](./leetcode-swift/lc_038.swift)|Easy|
 |58|[Length of Last Word](https://leetcode.com/problems/length-of-last-word/)| [C](./leetcode-c/lc_058.c), [Swift](./leetcode-swift/lc_058.swift)|Easy|
-|66|[Plus One](https://leetcode.com/problems/plus-one/)| [C](./leetcode-c/lc_066.c)|Easy|
+|66|[Plus One](https://leetcode.com/problems/plus-one/)| [C](./leetcode-c/lc_066.c), [Swift](./leetcode-swift/lc_066.swift)|Easy|
 |67|[Add Binary](https://leetcode.com/problems/add-binary/)| [C](./leetcode-c/lc_067.c)|Easy|
 |69|[Sqrt(x)](https://leetcode.com/problems/sqrtx/)| [C](./leetcode-c/lc_069.c)|Medium|
 |83|[Remove Duplicates from Sorted List](https://leetcode.com/problems/remove-duplicates-from-sorted-list/)| [C](./leetcode-c/lc_083.c)|Easy|
