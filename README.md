@@ -38,7 +38,7 @@
 |66|[Plus One](https://leetcode.com/problems/plus-one/)| [C](./leetcode-c/lc_066.c), [Swift](./leetcode-swift/lc_066.swift)|Easy|
 |67|[Add Binary](https://leetcode.com/problems/add-binary/)| [C](./leetcode-c/lc_067.c), [Swift](./leetcode-swift/lc_067.swift)|Easy|
 |69|[Sqrt(x)](https://leetcode.com/problems/sqrtx/)| [C](./leetcode-c/lc_069.c), [Swift](./leetcode-swift/lc_069.swift)|Medium|
-|83|[Remove Duplicates from Sorted List](https://leetcode.com/problems/remove-duplicates-from-sorted-list/)| [C](./leetcode-c/lc_083.c)|Easy|
+|83|[Remove Duplicates from Sorted List](https://leetcode.com/problems/remove-duplicates-from-sorted-list/)| [C](./leetcode-c/lc_083.c), [Swift](./leetcode-swift/lc_083.swift)|Easy|
 |88|[Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array/)| [C](./leetcode-c/lc_088.c)|Easy|
 
 ### UVa
