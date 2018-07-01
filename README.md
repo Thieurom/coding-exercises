@@ -23,7 +23,7 @@
 | # | Title | Solution | Difficulty |
 |---|-------|----------|------------|
 |1|[Two Sum](https://leetcode.com/problems/two-sum/)| [C](./leetcode-c/lc_001.c), [Go](./leetcode-go/lc_001.go), [Swift](./leetcode-swift/lc_001.swift)|Medium|
-|2|[Add Two Numbers](https://leetcode.com/problems/add-two-numbers/)| [C](./leetcode-c/lc_002.c)|Medium|
+|2|[Add Two Numbers](https://leetcode.com/problems/add-two-numbers/)| [C](./leetcode-c/lc_002.c), [swift](./leetcode-swift/lc_002.swift)|Medium|
 |7|[Reverse Integer](https://leetcode.com/problems/reverse-integer/)| [C](./leetcode-c/lc_002.c), [Go](./leetcode-go/lc_002.go), [Swift](./leetcode-swift/lc_007.swift)|Easy|
 |9|[Palindrome Number](https://leetcode.com/problems/palindrome-number/)| [C](./leetcode-c/lc_009.c), [Go](./leetcode-go/lc_009.go), [Swift](./leetcode-swift/lc_009.swift)|Easy|
 |11|[Container With Most Water](https://leetcode.com/problems/container-with-most-water/)|[Swift](./leetcode-swift/lc_011.swift)|Medium|
