@@ -7,18 +7,18 @@
 
 class Solution {
     func twoSum(_ nums: [Int], _ target: Int) -> [Int] {
-        var result = [-1, -1]
-        
-        for i in 0..<nums.count-1 {
-            for j in i+1..<nums.count {
-                if nums[i] + nums[j] == target {
-                    result[0] = i
-                    result[1] = j
-                    break
-                }
+        var numsDict: [Int: Int] = [:]
+
+        for index in 0..<nums.count {
+            let complement = target - nums[index]
+
+            if let position = numsDict[complement] {
+                return [position, index]
             }
+
+            numsDict[nums[index]] = index
         }
-        
-        return result
+
+        return [-1, -1]
     }
 }
